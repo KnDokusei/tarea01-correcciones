@@ -1,9 +1,8 @@
 # Rúbrica de Evaluación — Tarea 01
 ## ELO20225 Programación Procedural y Orientada a Objetos · Semestre 1, 2026
 
-> **Escala:** 1.0 – 7.0  
-> **Puntaje total:** 100 pts → nota final con escala lineal (0 pts = 1.0, 100 pts = 7.0)  
-> **Fórmula:** `Nota = 1.0 + (puntaje / 100) * 6.0`
+> **Escala:** 0 – 100 pts
+> **Nota final:** el puntaje obtenido sobre 100 es directamente la nota (sin conversión adicional)
 
 ---
 
@@ -88,7 +87,7 @@ Debe estar en formato PlantUML (`.puml`) y explicado en el informe.
 | 3 | Explicación en texto del informe coherente con el diagrama |
 | 0 | Sin diagrama |
 
-> ℹ️ Si el grupo no entregó `.puml` pero tiene imagen del diagrama en el informe, se evalúa con el criterio de 3 pts para el diagrama y se mantienen los 3 pts de explicación.
+> ℹ️ Si el grupo no entregó `.puml` pero tiene imagen del diagrama en el informe, se evalúa con 3 pts para el diagrama y se mantienen los 3 pts de explicación.
 
 ### 2.4 Nueva `main()` (5 pts)
 
@@ -107,28 +106,26 @@ La nueva `main()` debe usar exclusivamente las llamadas `usarSensores(sensores, 
 
 ### 3.1 Hito 1 — Análisis de `cicloEjemplo()` (15 pts, 3 pts c/u)
 
-Cada pregunta vale 3 puntos: 3 = correcto, 1-2 = parcialmente correcto, 0 = incorrecto/ausente.
+Cada pregunta vale 3 puntos: 3 = correcto, 1–2 = parcialmente correcto, 0 = incorrecto/ausente.
 
 | # | Pregunta | Respuesta esperada |
 |---|----------|--------------------|
 | 1 | ¿Qué retorna `clock()`? | Retorna el tiempo de CPU consumido por el proceso desde su inicio, en unidades de `clock_t` |
 | 2 | ¿Qué unidades tienen `inicio` y `fin`? | Unidades de reloj del procesador (`clock ticks`), **no** segundos |
 | 3 | ¿Por qué dividir por `CLOCKS_PER_SEC`? | Para convertir de ticks de reloj a segundos; `CLOCKS_PER_SEC` indica cuántos ticks hay en un segundo |
-| 4 | ¿Qué hace `(double)` como prefijo? | Es un *cast* explícito que convierte el resultado de `(fin - inicio)` de `uint64_t`/`clock_t` a `double` |
-| 5 | ¿Para qué sirve ese `(double)`? | Evita división entera; sin el cast, si `(fin - inicio)` fuera entero y `CLOCKS_PER_SEC` también, el resultado se truncaría perdiendo precisión decimal |
+| 4 | ¿Qué hace `(double)` como prefijo? | Es un *cast* explícito que convierte el resultado de `(fin - inicio)` de `clock_t` a `double` |
+| 5 | ¿Para qué sirve ese `(double)`? | Evita división entera; sin el cast el resultado se truncaría perdiendo precisión decimal |
 
-> ℹ️ Preguntas 4 y 5 son distintas: la 4 pide *qué hace* (mecánica del cast) y la 5 pide *para qué sirve* (propósito/utilidad). Si el grupo da la misma respuesta para ambas, evaluar con criterio: si la respuesta única cubre ambas, dar 3+2; si solo cubre una, dar 3+0.
+> ℹ️ Preguntas 4 y 5 son distintas: la 4 pide *qué hace* (mecánica del cast) y la 5 pide *para qué sirve* (propósito). Si el grupo da la misma respuesta para ambas y cubre los dos aspectos, dar 3+2; si solo cubre uno, dar 3+0.
 
 ### 3.2 Hito 2 — `cicloPrueba()` implementación (10 pts)
-
-La función debe medir el tiempo de un `for` de `1e8` iteraciones para cada caso del enum `caso_t`.
 
 | Criterio | Pts |
 |----------|-----|
 | Estructura correcta: usa `clock()`, resta `fin - inicio`, divide por `CLOCKS_PER_SEC`, multiplica por `1e9`, divide por `cantidadIteraciones` | 4 |
 | Maneja correctamente los 4 casos del enum con `switch` o equivalente | 4 |
 | `VACIO` implementado con ciclo vacío (`;`) | 1 |
-| Elimina la llamada a `cicloEjemplo()` de la `main()` (líneas que debían borrarse) | 1 |
+| Elimina la llamada a `cicloEjemplo()` de la `main()` | 1 |
 
 **Penalizaciones:**
 - No compila → máximo 2 pts (se evalúa intención)
@@ -179,28 +176,8 @@ Deben presentar **10 ejecuciones** para cada uno de los 4 casos, más promedio y
 | No compila ninguna de las dos partes | −10 pts adicionales |
 | Código no es propio (copia entre grupos o generado sin comprensión) | Caso académico — consultar al profesor |
 | Entrega tardía | Según reglamento del curso |
-| `cicloEjemplo()` no eliminada de `main()` antes de entregar | −1 pt (ya incluido en 3.2) |
-| Archivos de sistema innecesarios (`.exe`, `.DS_Store`, etc.) | Sin penalización en nota, anotar en observaciones |
-
----
-
-## Conversión puntaje → nota
-
-| Puntaje | Nota |
-|---------|------|
-| 100 | 7.0 |
-| 92 | 6.5 |
-| 83 | 6.0 |
-| 75 | 5.5 |
-| 67 | 5.0 |
-| 58 | 4.5 |
-| 50 | 4.0 ← aprobación |
-| 42 | 3.5 |
-| 33 | 3.0 |
-| 25 | 2.5 |
-| 17 | 2.0 |
-| 8 | 1.5 |
-| 0 | 1.0 |
+| `cicloEjemplo()` no eliminada de `main()` | −1 pt (incluido en 3.2) |
+| Archivos de sistema innecesarios (`.exe`, `.DS_Store`, etc.) | Sin penalización en nota; anotar en observaciones |
 
 ---
 
