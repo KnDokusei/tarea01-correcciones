@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+__MACOSX/
+._*
+
+# Windows
+desktop.ini
+Thumbs.db
+
+# Binarios compilados (excepto los que entregaron los alumnos)
+*.o
+*.out
+a.out
+
+# IDEs
+.vscode/
+.idea/
+*.swp
