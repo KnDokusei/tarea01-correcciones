@@ -1,0 +1,13 @@
+Grupo 01
+Puntaje total: 91 / 100
+
+Desglose de puntaje:
+- Informe: 10/10
+- Parte 1: 31/35 (enum: 5/5, usarSensores: 15/15, diagrama: 6/10, main: 5/5)
+- Parte 2: 50/55 (Hito 1: 15/15, Hito 2 código: 10/10, Hito 2 diag: 6/10, Hito 3 tabla: 9/10, Hito 3 análisis: 10/10)
+
+Observaciones:
+- Muy buen trabajo en general, el código compila y ejecuta perfecto. Súper claras las respuestas del Hito 1 y el análisis del Hito 3.
+- (-8 pts) Diagramas: Los entregaron como imagen en el PDF en lugar de archivos .puml como se pedía.
+- (-1 pt) Hito 3 Tabla: La tabla muestra solo t1, t2 y t10; faltaron las 10 columnas de ejecuciones.
+- Ojo: El informe menciona "1.000.000 iteraciones", pero el código usa 1e8 que es lo correcto (no hay descuento por esto).
